@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💖 กำลังใจให้คนคุย</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: "Baloo 2", cursive;
+        background: linear-gradient(135deg, #ffe0f0, #ffd1e8, #fff0f5);
+        overflow: hidden;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 20px;
+      }
+      h1 {
+        text-align: center;
+        color: #ff69b4;
+        font-size: 28px;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      }
+      button {
+        padding: 16px 28px;
+        font-size: 18px;
+        border: none;
+        border-radius: 20px;
+        background: #ff7eb9;
+        color: white;
+        cursor: pointer;
+        margin-top: 20px;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      }
+      button:active {
+        transform: scale(0.95);
+      }
+      .floatingMsg {
+        position: absolute;
+        font-size: 18px;
+        font-weight: bold;
+        color: #ff4da6;
+        pointer-events: none;
+        user-select: none;
+        white-space: nowrap;
+        animation: floatUp 4s ease forwards;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+      }
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0) scale(0.8);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-200px) scale(1.2);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>💌 มีกำลังใจมาให้เธอ 💌</h1>
+      <button id="btn">กดดูสิ</button>
+    </div>
+
+    <script>
+      const messages = [
+        "เธอเก่งมากๆเลยนะ 💪",
+        "ยิ้มให้ตัวเองบ้างนะ 😊",
+        "ข้างๆเธอมีเค้าตลอกนะ ✨",
+        "เธอเก่งในเเบบของเธอ 💖",
+        "เหนื่อยก็พักได้เสมอ 🛌",
+        "เธอไม่ได้อยู่คนเดียว 💕",
+        "เชื่อในตัวเองนะ 🌟",
+        "เค้าค่อยให้กำลังใจเธอเสมอนะ 🎉",
+        "สู้ๆนะครับเธอ 🌸",
+        "รักเธอนะครับ 💖",
+      ];
+
+      const btn = document.getElementById("btn");
+
+      function randomPosition(el) {
+        const x = Math.random() * (window.innerWidth - el.offsetWidth);
+        const y = Math.random() * (window.innerHeight - el.offsetHeight);
+        el.style.left = `${x}px`;
+        el.style.top = `${y}px`;
+      }
+
+      function showMessage() {
+        const index = Math.floor(Math.random() * messages.length);
+        const text = messages[index];
+        const msgEl = document.createElement("div");
+        msgEl.className = "floatingMsg";
+        msgEl.textContent = text;
+        document.body.appendChild(msgEl);
+        randomPosition(msgEl);
+        setTimeout(() => msgEl.remove(), 4000);
+      }
+
+      btn.addEventListener("click", showMessage);
+    </script>
+  </body>
+</html>
