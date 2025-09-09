@@ -2,8 +2,11 @@
 <html lang="th">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>💖 กำลังใจให้คนคุย</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>💖 กดดูสิ</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700&display=swap"
       rel="stylesheet"
@@ -17,6 +20,7 @@
         font-family: "Baloo 2", cursive;
         background: linear-gradient(135deg, #ffe0f0, #ffd1e8, #fff0f5);
         overflow: hidden;
+        -webkit-text-size-adjust: 100%; /* ป้องกัน iOS ซูม */
       }
       .container {
         display: flex;
@@ -25,6 +29,8 @@
         justify-content: center;
         height: 100%;
         padding: 20px;
+        max-width: 480px;
+        margin: auto;
       }
       h1 {
         text-align: center;
@@ -82,7 +88,7 @@
       const messages = [
         "เธอเก่งมากๆเลยนะ 💪",
         "ยิ้มให้ตัวเองบ้างนะ 😊",
-        "ข้างๆเธอมีเค้าตลอกนะ ✨",
+        "ข้างๆเธอมีเค้าตลอดนะ ✨",
         "เธอเก่งในเเบบของเธอ 💖",
         "เหนื่อยก็พักได้เสมอ 🛌",
         "เธอไม่ได้อยู่คนเดียว 💕",
